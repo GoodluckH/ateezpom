@@ -20,7 +20,8 @@
     "@remix-run/react": "^2.9.2",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "remix-utils": "^7.6.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240614.0",
@@ -30,6 +31,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "autoprefixer": "^10.4.19",
+    "daisyui": "^4.12.2",
     "eslint": "^8.38.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.28.1",

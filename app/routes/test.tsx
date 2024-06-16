@@ -23,7 +23,8 @@ export const loader: LoaderFunction = () => {
 };
 
 export const action: ActionFunction = () => {
-  return null;
+  console.log("hahah");
+  return 300;
 };
 
 export default function Index() {
