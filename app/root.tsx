@@ -6,12 +6,21 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SupportedThemes } from "./types/theme";
 import { ThemeContext } from "./context/ThemeContext";
+import { themeChange } from "theme-change";
+import { NavBar } from "./components/navbar";
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState(SupportedThemes.LIGHT);
+  const [theme, setTheme] = useState<SupportedThemes | undefined>(
+    SupportedThemes.LIGHT
+  );
+
+  useEffect(() => {
+    themeChange(false);
+  }, []);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <html lang="en" data-theme={theme}>
@@ -22,6 +31,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Links />
         </head>
         <body>
+          <NavBar />
           {children}
           <ScrollRestoration />
           <Scripts />

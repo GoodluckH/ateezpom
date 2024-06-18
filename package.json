@@ -15,13 +15,26 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@nextui-org/button": "^2.0.34",
+    "@nextui-org/card": "^2.0.31",
+    "@nextui-org/dropdown": "^2.1.26",
+    "@nextui-org/image": "^2.0.29",
+    "@nextui-org/input": "^2.2.2",
+    "@nextui-org/system": "^2.2.2",
+    "@nextui-org/theme": "^2.2.6",
     "@remix-run/cloudflare": "^2.9.2",
     "@remix-run/cloudflare-pages": "^2.9.2",
     "@remix-run/react": "^2.9.2",
+    "@tabler/icons-react": "^3.6.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.10",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "remix-utils": "^7.6.0"
+    "react-spring": "^9.7.3",
+    "remix-utils": "^7.6.0",
+    "tailwind-merge": "^2.3.0",
+    "theme-change": "^2.5.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240614.0",
