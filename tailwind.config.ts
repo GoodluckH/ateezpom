@@ -1,7 +1,11 @@
+import { nextui } from "@nextui-org/theme";
 import type { Config } from "tailwindcss";
 
 export default {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/components/(button|card|dropdown|image|input|popover|ripple|spinner|menu|divider).js",
+  ],
   theme: {
     extend: {
       animation: {
@@ -28,9 +32,7 @@ export default {
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
-      "light",
       "dark",
-      "cupcake",
       {
         ateez: {
           "base-100": "#264557",

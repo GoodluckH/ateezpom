@@ -4,7 +4,8 @@ import type {
   MetaFunction,
 } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-import { useContext } from "react";
+import { AnimatePresence, m } from "framer-motion";
+import { useContext, useState } from "react";
 import { ThemeContext } from "~/context/ThemeContext";
 import { SupportedThemes } from "~/types/theme";
 
@@ -29,26 +30,31 @@ export const action: ActionFunction = () => {
 
 export default function Index() {
   const data = useLoaderData() as String;
-  const { setTheme } = useContext(ThemeContext);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const items = [
+    { id: "1", title: "First", subtitle: "First subtitle" },
+    { id: "2", title: "Second", subtitle: "Second subtitle" },
+    { id: "3", title: "Third", subtitle: "Third subtitle" },
+  ];
+  const item = items.find((item) => item.id === selectedId);
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">{data}</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        {Object.keys(SupportedThemes).map((themeKey, idx) => {
-          const theme =
-            SupportedThemes[themeKey as keyof typeof SupportedThemes];
-          return (
-            <li
-              key={idx}
-              onClick={() => {
-                setTheme(theme);
-              }}
-            >
-              {theme}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      {items.map((item) => (
+        <m.div layoutId={item.id} onClick={() => setSelectedId(item.id)}>
+          <m.h5>{item.subtitle}</m.h5>
+          <m.h2>{item.title}</m.h2>
+        </m.div>
+      ))}
+
+      <AnimatePresence>
+        {selectedId && (
+          <m.div layoutId={selectedId}>
+            <m.h5>{item?.subtitle}</m.h5>
+            <m.h2>{item?.title}</m.h2>
+            <m.button onClick={() => setSelectedId(null)} />
+          </m.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

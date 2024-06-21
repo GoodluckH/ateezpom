@@ -5,6 +5,6 @@ export const ThemeContext = createContext<{
   theme?: SupportedThemes;
   setTheme: (t: SupportedThemes | undefined) => void;
 }>({
-  theme: SupportedThemes.LIGHT,
+  theme: SupportedThemes.ATEEZ,
   setTheme: () => {},
 });
